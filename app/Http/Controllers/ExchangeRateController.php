@@ -30,13 +30,13 @@ class ExchangeRateController
         $monedaOrigen = Currency::find($data['moneda_origen']);
 
         if (!$monedaOrigen) {
-            throw new BadRequestHttpException();
+            throw new BadRequestHttpException("", null, 1001);
         }
 
         $monedaDestino = Currency::find($data['moneda_destino']);
 
         if (!$monedaDestino) {
-            throw new BadRequestHttpException();
+            throw new BadRequestHttpException("", null, 1002);
         }
 
         $exchangeRate = ExchangeRate::where([
